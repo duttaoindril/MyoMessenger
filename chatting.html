@@ -30,6 +30,11 @@
         </div>
     </div>
     <script>
+        window.setInterval(function() {
+          var elem = document.getElementById('messages');
+          elem.scrollTop = elem.scrollHeight;
+        }, 100);
+
         function send()
         {
             $("#messages").append("<div class='friendholder'><div class='message'><p>" + $("#text").val() + "</p></div></div>");
