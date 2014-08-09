@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <script data-require="angular.js@*" data-semver="1.2.0-rc3-nonmin" src="http://code.angularjs.org/1.2.0-rc.3/angular.js"></script>
+    <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script src="https://cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div ng-controller="DashboardCtrl as dash">
+        <h1>Assistive Messenger</h1>
+        <div class="chat-window">
+            <div class="row" ng-repeat="user in dash.tests" ng-class="{even: $even, odd: $odd}">
+                <div class="message arrow_box">
+                    <span class="cell text">{{user.message}}<p class=" time">{{user.time}}</p></span>
+                </div>
+                <span class="cell name"><strong>{{user.name}}</strong></span>
+            </div>
+        </div>
+        <div class="field">
+            <input type="text" id="text">
+            <button>Enter</button>
+        </div>
+    </div>
+</body>
+
+</html>
