@@ -78,7 +78,7 @@
                 if(directionsArray[1] && directionsArray[2]) // If up and down both happened, launch result.
                 {
                     clearOut();
-                    $("#messages").append("<div class='message'>Thanks!</div>")
+                    $("#messages").append("<div class='message'><p>Thanks!</p></div>");
                 }
             }
         });
@@ -107,7 +107,7 @@
                     if(frame.euler["roll"] > 1.25 && !directionsArray[4]) // If hand turned right, log it.
                     {
                         clearOut();
-                        $("#messages").append("<div class='message'>What's Up?</div>")
+                        $("#messages").append("<div class='message'><p>What's Up?</p></div>");
                     }
                 }
                 if(!gestureArray[0] && gestureArray[1])
@@ -115,7 +115,7 @@
                     if (directionsArray[3] && directionsArray[4]) // If waved, launch result.
                     {
                         clearOut();
-                        $("#messages").append("<div class='message'>B-Bye!</div>")
+                        $("#messages").append("<div class='message'><p>B-Bye!</p></div>");
                     }
                     if(frame.euler["roll"] < 1.25 && !directionsArray[3]) // If hand turned left, log it.
                     {
@@ -143,7 +143,7 @@
                 if(directionsArray[5] && directionsArray[6]) // If both sideways/up/down, launch result.
                 {
                     clearOut();
-                    $("#messages").append("<div class='message'>I'm Great!</div>")
+                    $("#messages").append("<div class='message'><p>I'm Great!</p></div>");
                 }
             }
         });
