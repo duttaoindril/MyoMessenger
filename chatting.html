@@ -25,15 +25,15 @@
 
         </div>
         <div id="enter">
-            <input type="text" id="text">
+            <textarea id="text"></textarea>
             <button onClick="send()">Enter</button>
         </div>
     </div>
     <script>
         function send()
         {
-            $("#messages").append("<div class='message'><p>" + $("#text").html() + "</p></div>");
-            $("#text").html("");
+            $("#messages").append("<div class='friendholder'><div class='message'><p>" + $("#text").val() + "</p></div></div>");
+            $("#text").val("");
         }
 
         gestureArray = [false, false]; // If Fist, or If wave out
@@ -84,7 +84,7 @@
                 if(directionsArray[1] && directionsArray[2]) // If up and down both happened, launch result.
                 {
                     clearOut();
-                    $("#messages").append("<div class='message'><p>Thanks!</p></div>");
+                    $("#messages").append("<div class='friendholder'><div class='message'><p>Thanks!</p></div></div>");
                 }
             }
         });
@@ -113,7 +113,7 @@
                     if(frame.euler["roll"] > 1.25 && !directionsArray[4]) // If hand turned right, log it.
                     {
                         clearOut();
-                        $("#messages").append("<div class='message'><p>What's Up?</p></div>");
+                        $("#messages").append("<div class='friendholder'><div class='message'><p>What's Up?</p></div></div>");
                     }
                 }
                 if(!gestureArray[0] && gestureArray[1])
@@ -121,7 +121,7 @@
                     if (directionsArray[3] && directionsArray[4]) // If waved, launch result.
                     {
                         clearOut();
-                        $("#messages").append("<div class='message'><p>B-Bye!</p></div>");
+                        $("#messages").append("<div class='friendholder'><div class='message'><p>B-Bye!</p></div></div>");
                     }
                     if(frame.euler["roll"] < 1.25 && !directionsArray[3]) // If hand turned left, log it.
                     {
@@ -149,7 +149,7 @@
                 if(directionsArray[5] && directionsArray[6]) // If both sideways/up/down, launch result.
                 {
                     clearOut();
-                    $("#messages").append("<div class='message'><p>I'm Great!</p></div>");
+                    $("#messages").append("<div class='friendholder'><div class='message'><p>I'm Great!</p></div></div>");
                 }
             }
         });
