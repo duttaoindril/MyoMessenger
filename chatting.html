@@ -26,10 +26,16 @@
         </div>
         <div id="enter">
             <input type="text" id="text">
-            <button>Enter</button>
+            <button onClick="send()">Enter</button>
         </div>
     </div>
     <script>
+        function send()
+        {
+            $("#messages").append("<div class='message'><p>" + $("#text").html() + "</p></div>");
+            $("#text").html("");
+        }
+
         gestureArray = [false, false]; // If Fist, or If wave out
 
         directionsArray = [false, false, false, false, false, false, false]; // HandUp 0, up 1, down 2, left 3, right 4, sidewaysup 5, sidewaysdown 6
