@@ -50,6 +50,7 @@
 .message .left
 {
     float: left;
+    background-color: #334;
 }
 .message p
 {
