@@ -23,6 +23,7 @@
     height: 75px;
     background-color: #333;
     border-radius: 20px;
+    color: white;
 }
 #enter
 {
@@ -33,9 +34,11 @@
 {
     height: 100%;
     width: 80%;
+    float: left;
 }
 #enter button
 {
     height: 100%;
     width: 20%;
+    float: left;
 }
