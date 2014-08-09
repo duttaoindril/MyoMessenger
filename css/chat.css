@@ -13,7 +13,8 @@
 #messages
 {
     width: 100%;
-    height: 70%;
+    height: 90%;
+    background-color: #222;
 }
 .message
 {
@@ -26,5 +27,15 @@
 #enter
 {
     width: 100%;
-    height: 30%;
+    height: 10%;
+}
+#enter input
+{
+    height: 100%;
+    width: 80%;
+}
+#enter button
+{
+    height: 100%;
+    width: 20%;
 }
