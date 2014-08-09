@@ -47,6 +47,10 @@
     text-align: center;
     margin: 5px 20px;
 }
+.message .left
+{
+    float: left;
+}
 .message p
 {
     padding: 0px 20px;
