@@ -2,11 +2,38 @@
 <head>
     <title>AccessibleMessenger</title>
     <script src="myojs-0.8.6.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div id="friends">
+        <div class="friend">
+            Tina Li
+        </div>
+        <div class="friend">
+            Kylie Moden
+        </div>
+        <div class="friend">
+            Areeb Khan
+        </div>
+        <div class="friend">
+            Kamesh Vedula
+        </div>
+    </div>
+    <div id="chat">
+        <div id="messages">
+
+        </div>
+        <div id="enter">
+            <input type="text" id="text">
+            <button>Enter</button>
+        </div>
+    </div>
     <script>
         gestureArray = [false, false]; // If Fist, or If wave out
-        
+
         directionsArray = [false, false, false, false, false, false, false]; // HandUp 0, up 1, down 2, left 3, right 4, sidewaysup 5, sidewaysdown 6
-        
+
         function clearOut()
         {
             for(var i = 0; i < gestureArray.length; i++)
@@ -14,7 +41,7 @@
             for(var i = 0; i < directionsArray.length; i++)
                 directionsArray[i] = false;
         }
-        
+
         var hub = new Myo.Hub();
         hub.on('ready', function() {
             console.log("ready");
@@ -22,7 +49,7 @@
         hub.on('connect', function() {
             console.log("connected!");
         });
-        
+
         hub.on('frame', function(frame) { // Detect Pose, 1 = fist, 2 = wave left, 3 = wave out, 4 = spread, 6 = thumb pinky
             if(frame.pose["valid"])
             {
@@ -36,7 +63,7 @@
                 }
             }
         });
-               
+
         hub.on('frame', function(frame) {
             if (gestureArray[0])
             {
@@ -51,11 +78,11 @@
                 if(directionsArray[1] && directionsArray[2]) // If up and down both happened, launch result.
                 {
                     clearOut();
-                    console.log("Thanks!");
+                    $("#messages").append("<div class='message'>Thanks!</div>")
                 }
             }
         });
-        
+
         hub.on('frame', function(frame) { // Detect hand up to say hi
             if(frame.accel["x"] > .9)
             {
@@ -64,7 +91,7 @@
                     if (directionsArray[3] && directionsArray[4]) // If waved, launch result.
                     {
                         clearOut();
-                        console.log("Hi/Hello");
+                        $("#messages").append('<div class="message">Hey!</div>')
                     }
                     if(frame.euler["roll"] < 1.25 && !directionsArray[3]) // If hand turned left, log it.
                     {
@@ -80,7 +107,7 @@
                     if(frame.euler["roll"] > 1.25 && !directionsArray[4]) // If hand turned right, log it.
                     {
                         clearOut();
-                        console.log("What's up?");
+                        $("#messages").append("<div class='message'>What's Up?</div>")
                     }
                 }
                 if(!gestureArray[0] && gestureArray[1])
@@ -88,7 +115,7 @@
                     if (directionsArray[3] && directionsArray[4]) // If waved, launch result.
                     {
                         clearOut();
-                        console.log("Bye");
+                        $("#messages").append("<div class='message'>B-Bye!</div>")
                     }
                     if(frame.euler["roll"] < 1.25 && !directionsArray[3]) // If hand turned left, log it.
                     {
@@ -101,7 +128,7 @@
                 }
             }
         });
-        
+
         hub.on('frame', function(frame) {
             if (gestureArray[0])
             {
@@ -116,17 +143,14 @@
                 if(directionsArray[5] && directionsArray[6]) // If both sideways/up/down, launch result.
                 {
                     clearOut();
-                    console.log("I'm Good.");
+                    $("#messages").append("<div class='message'>I'm Great!</div>")
                 }
             }
         });
-        
+
         hub.on('disconnect', function() {
             console.log("disconnect");
         });
     </script>
-</head>
-<body>
-<button onclick="hub.myo.vibrate(hub.myo.VIBRATION_LONG);">Vibrate</button>
 </body>
 </html>
