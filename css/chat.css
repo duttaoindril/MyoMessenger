@@ -1,14 +1,28 @@
 #friends
 {
-    width: 30%;
+    width: 20%;
     float: left;
     height: 100%;
-    background-color: #112;
+    background-color: #66f;
     color: white;
+}
+.friend
+{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 20px;
+}
+.friend:hover {
+    background-color: #44f;
+}
+.friend p
+{
+    padding: 10px 0px;
 }
 #chat
 {
-    width: 70%;
+    width: 80%;
     float: right;
     height: 100%;
 }
