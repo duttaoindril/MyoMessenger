@@ -17,7 +17,11 @@
 }
 .message
 {
-
+    width: auto;
+    float: right;
+    height: 75px;
+    background-color: #333;
+    border-radius: 20px;
 }
 #enter
 {
